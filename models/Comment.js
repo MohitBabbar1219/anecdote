@@ -2,18 +2,29 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema({
+const commentSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  title: {
-    type: String,
-    required: true
-  },
   text: {
     type: String,
     required: true
+  },
+  of: {
+    type: Schema.Types.ObjectId,
+    refPath: 'onModel',
+    required: true
+  },
+  blog: {
+    type: Schema.Types.ObjectId,
+    ref: 'blogs',
+    required: true
+  },
+  onModel: {
+    type: String,
+    required: true,
+    enum: ['blogs', 'comments']
   },
   comments: [{
     comment: {
@@ -27,4 +38,4 @@ const postSchema = new Schema({
   }
 });
 
-module.exports = Post = mongoose.model('blogs', postSchema);
+module.exports = Post = mongoose.model('comments', commentSchema);

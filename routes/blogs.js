@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const passport = require('passport');
-const mongoose = require('mongoose');
 
 const validatePostInput = require('./../helpers/blogValidations');
 
 const Blog = require('./../models/Blog');
+const Comment = require('./../models/Comment');
 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   const {errors, isValid} = validatePostInput(req.body);
@@ -42,12 +42,41 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res)
           return res.status(401).json({message: 'user not authorized'});
         } else {
           const postToBeDeleted = {...post};
+          Comment.deleteMany({blog: post.id}).then(deletedComments => console.log(deletedComments));
           post.remove().then(() => res.status(200).json({deleted: true, deletedPost: postToBeDeleted}));
         }
       } else {
         return res.status(404).json({post: 'blog post with this id does not exist'});
       }
     }).catch(err => res.status(404).json('couldn\'t delete the blog post'));
+});
+
+router.post('/:id/comment', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Blog.findById(req.params.id).then(post => {
+    if (post) {
+      const newComment = new Comment({
+        user: req.user.id,
+        text: req.body.text,
+        of: post.id,
+        blog: post.id,
+        onModel: 'blogs',
+      });
+      post.comments.push({comment: newComment.id});
+      Promise.all([post.save(), newComment.save()]).then(values => res.json(values[1]));
+    } else {
+      return res.status(404).json({post: 'blog post with this id does not exist'});
+    }
+  }).catch(err => res.status(404).json('couldn\'t comment on the blog post'));
+});
+
+router.get('/:id/comments', (req, res) => {
+  Comment.find({of: req.params.id}).then(comments => {
+    if (comments) {
+      res.json(comments);
+    } else {
+      return res.status(404).json({comments: 'blog post with this id does not have any comments'});
+    }
+  }).catch(err => res.status(404).json('couldn\'t fetch comments of the blog post'));
 });
 
 module.exports = router;

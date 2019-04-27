@@ -5,6 +5,7 @@ const passport = require('passport');
 
 require('./models/User');
 require('./models/Blog');
+require('./models/Comment');
 
 const app = express();
 
@@ -24,6 +25,8 @@ const users = require('./routes/users');
 app.use('/api/users', users);
 const blogs = require('./routes/blogs');
 app.use('/api/blogs', blogs);
+const comments = require('./routes/comments');
+app.use('/api/comments', comments);
 
 const PORT = process.env.PORT || 5000;
 
