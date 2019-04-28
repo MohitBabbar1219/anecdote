@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
-
+const path = require('path');
 require('./models/User');
 require('./models/Blog');
 require('./models/Comment');
@@ -27,6 +27,13 @@ const blogs = require('./routes/blogs');
 app.use('/api/blogs', blogs);
 const comments = require('./routes/comments');
 app.use('/api/comments', comments);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
