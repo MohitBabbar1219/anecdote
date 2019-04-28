@@ -2,13 +2,14 @@ const router = require('express').Router();
 const passport = require('passport');
 
 const populationPathEh = require('./../helpers/getPopulationPath').populatePathEh;
+const populationUserPathEh = require('./../helpers/getPopulationPath').populateUserPathEh;
 
 const Blog = require('./../models/Blog');
 const Comment = require('./../models/Comment');
 
 
 router.get('/:id', (req, res) => {
-  Comment.findById(req.params.id).then(comment => {
+  Comment.findById(req.params.id).populate('user').then(comment => {
     if (comment) {
       return res.json(comment);
     } else {
@@ -51,7 +52,7 @@ router.delete('/:id', passport.authenticate('jwt', {session: false}), (req, res)
 });
 
 router.get('/of_blog_threaded/:blogId', (req, res) => {
-  Comment.find({of: req.params.blogId}).populate(populationPathEh).then(comments => {
+  Comment.find({of: req.params.blogId}).populate(populationUserPathEh).populate({path: 'user', populate: {path: 'user'}}).sort({date: -1}).then(comments => {
     if (comments) {
       res.json(comments);
     } else {

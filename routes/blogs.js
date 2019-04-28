@@ -25,6 +25,12 @@ router.get('/', (req, res) => {
   }).catch(err => res.status(404).json('couldn\'t get the blog posts'));
 });
 
+router.get('/my_blogs', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Blog.find({user: req.user.id}).populate('user').sort({date: -1}).then(posts => {
+    res.json({posts});
+  }).catch(err => res.status(404).json('couldn\'t get the blog posts'));
+});
+
 router.get('/:id', (req, res) => {
   Blog.findById(req.params.id).then(post => {
     if (post) {

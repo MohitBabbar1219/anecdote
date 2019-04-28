@@ -1,156 +1,27 @@
-const populatePathEh = {
+const populateUserPathEh = {
   path: 'comments.comment',
   populate: {
-    path: 'comments.comment',
+    path: 'comments.comment user',
     populate: {
-      path: 'comments.comment',
+      path: 'comments.comment user',
       populate: {
-        path: 'comments.comment',
+        path: 'comments.comment user',
         populate: {
-          path: 'comments.comment',
+          path: 'comments.comment user',
           populate: {
-            path: 'comments.comment',
+            path: 'comments.comment user',
             populate: {
-              path: 'comments.comment',
+              path: 'comments.comment user',
               populate: {
-                path: 'comments.comment',
+                path: 'comments.comment user',
                 populate: {
-                  path: 'comments.comment',
+                  path: 'comments.comment user',
                   populate: {
-                    path: 'comments.comment',
+                    path: 'comments.comment user',
                     populate: {
-                      path: 'comments.comment',
+                      path: 'comments.comment user',
                       populate: {
-                        path: 'comments.comment',
-                        populate: {
-                          path: 'comments.comment',
-                          populate: {
-                            path: 'comments.comment',
-                            populate: {
-                              path: 'comments.comment',
-                              populate: {
-                                path: 'comments.comment',
-                                populate: {
-                                  path: 'comments.comment',
-                                  populate: {
-                                    path: 'comments.comment',
-                                    populate: {
-                                      path: 'comments.comment',
-                                      populate: {
-                                        path: 'comments.comment',
-                                        populate: {
-                                          path: 'comments.comment',
-                                          populate: {
-                                            path: 'comments.comment',
-                                            populate: {
-                                              path: 'comments.comment',
-                                              populate: {
-                                                path: 'comments.comment',
-                                                populate: {
-                                                  path: 'comments.comment',
-                                                  populate: {
-                                                    path: 'comments.comment',
-                                                    populate: {
-                                                      path: 'comments.comment',
-                                                      populate: {
-                                                        path: 'comments.comment',
-                                                        populate: {
-                                                          path: 'comments.comment',
-                                                          populate: {
-                                                            path: 'comments.comment',
-                                                            populate: {
-                                                              path: 'comments.comment',
-                                                              populate: {
-                                                                path: 'comments.comment',
-                                                                populate: {
-                                                                  path: 'comments.comment',
-                                                                  populate: {
-                                                                    path: 'comments.comment',
-                                                                    populate: {
-                                                                      path: 'comments.comment',
-                                                                      populate: {
-                                                                        path: 'comments.comment',
-                                                                        populate: {
-                                                                          path: 'comments.comment',
-                                                                          populate: {
-                                                                            path: 'comments.comment',
-                                                                            populate: {
-                                                                              path: 'comments.comment',
-                                                                              populate: {
-                                                                                path: 'comments.comment',
-                                                                                populate: {
-                                                                                  path: 'comments.comment',
-                                                                                  populate: {
-                                                                                    path: 'comments.comment',
-                                                                                    populate: {
-                                                                                      path: 'comments.comment',
-                                                                                      populate: {
-                                                                                        path: 'comments.comment',
-                                                                                        populate: {
-                                                                                          path: 'comments.comment',
-                                                                                          populate: {
-                                                                                            path: 'comments.comment',
-                                                                                            populate: {
-                                                                                              path: 'comments.comment',
-                                                                                              populate: {
-                                                                                                path: 'comments.comment',
-                                                                                                populate: {
-                                                                                                  path: 'comments.comment',
-                                                                                                  populate: {
-                                                                                                    path: 'comments.comment',
-                                                                                                    populate: {
-                                                                                                      path: 'comments.comment',
-                                                                                                      populate: {
-                                                                                                        path: 'comments.comment',
-                                                                                                        populate: {
-                                                                                                          path: 'comments.comment',
-                                                                                                          populate: {
-                                                                                                            path: 'comments.comment',
-                                                                                                            populate: {
-                                                                                                              path: 'comments.comment',
-                                                                                                            }
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
+                        path: 'comments.comment user',
                       }
                     }
                   }
@@ -164,4 +35,171 @@ const populatePathEh = {
   }
 };
 
-module.exports = {populatePathEh};
+// const populatePathEh = {
+//   path: 'comments.comment',
+//   populate: {
+//     path: 'comments.comment',
+//     populate: {
+//       path: 'comments.comment',
+//       populate: {
+//         path: 'comments.comment',
+//         populate: {
+//           path: 'comments.comment',
+//           populate: {
+//             path: 'comments.comment',
+//             populate: {
+//               path: 'comments.comment',
+//               populate: {
+//                 path: 'comments.comment',
+//                 populate: {
+//                   path: 'comments.comment',
+//                   populate: {
+//                     path: 'comments.comment',
+//                     populate: {
+//                       path: 'comments.comment',
+//                       populate: {
+//                         path: 'comments.comment',
+//                         populate: {
+//                           path: 'comments.comment',
+//                           populate: {
+//                             path: 'comments.comment',
+//                             populate: {
+//                               path: 'comments.comment',
+//                               populate: {
+//                                 path: 'comments.comment',
+//                                 populate: {
+//                                   path: 'comments.comment',
+//                                   populate: {
+//                                     path: 'comments.comment',
+//                                     populate: {
+//                                       path: 'comments.comment',
+//                                       populate: {
+//                                         path: 'comments.comment',
+//                                         populate: {
+//                                           path: 'comments.comment',
+//                                           populate: {
+//                                             path: 'comments.comment',
+//                                             populate: {
+//                                               path: 'comments.comment',
+//                                               populate: {
+//                                                 path: 'comments.comment',
+//                                                 populate: {
+//                                                   path: 'comments.comment',
+//                                                   populate: {
+//                                                     path: 'comments.comment',
+//                                                     populate: {
+//                                                       path: 'comments.comment',
+//                                                       populate: {
+//                                                         path: 'comments.comment',
+//                                                         populate: {
+//                                                           path: 'comments.comment',
+//                                                           populate: {
+//                                                             path: 'comments.comment',
+//                                                             populate: {
+//                                                               path: 'comments.comment',
+//                                                               populate: {
+//                                                                 path: 'comments.comment',
+//                                                                 populate: {
+//                                                                   path: 'comments.comment',
+//                                                                   populate: {
+//                                                                     path: 'comments.comment',
+//                                                                     populate: {
+//                                                                       path: 'comments.comment',
+//                                                                       populate: {
+//                                                                         path: 'comments.comment',
+//                                                                         populate: {
+//                                                                           path: 'comments.comment',
+//                                                                           populate: {
+//                                                                             path: 'comments.comment',
+//                                                                             populate: {
+//                                                                               path: 'comments.comment',
+//                                                                               populate: {
+//                                                                                 path: 'comments.comment',
+//                                                                                 populate: {
+//                                                                                   path: 'comments.comment',
+//                                                                                   populate: {
+//                                                                                     path: 'comments.comment',
+//                                                                                     populate: {
+//                                                                                       path: 'comments.comment',
+//                                                                                       populate: {
+//                                                                                         path: 'comments.comment',
+//                                                                                         populate: {
+//                                                                                           path: 'comments.comment',
+//                                                                                           populate: {
+//                                                                                             path: 'comments.comment',
+//                                                                                             populate: {
+//                                                                                               path: 'comments.comment',
+//                                                                                               populate: {
+//                                                                                                 path: 'comments.comment',
+//                                                                                                 populate: {
+//                                                                                                   path: 'comments.comment',
+//                                                                                                   populate: {
+//                                                                                                     path: 'comments.comment',
+//                                                                                                     populate: {
+//                                                                                                       path: 'comments.comment',
+//                                                                                                       populate: {
+//                                                                                                         path: 'comments.comment',
+//                                                                                                         populate: {
+//                                                                                                           path: 'comments.comment',
+//                                                                                                           populate: {
+//                                                                                                             path: 'comments.comment',
+//                                                                                                             populate: {
+//                                                                                                               path: 'comments.comment',
+//                                                                                                             }
+//                                                                                                           }
+//                                                                                                         }
+//                                                                                                       }
+//                                                                                                     }
+//                                                                                                   }
+//                                                                                                 }
+//                                                                                               }
+//                                                                                             }
+//                                                                                           }
+//                                                                                         }
+//                                                                                       }
+//                                                                                     }
+//                                                                                   }
+//                                                                                 }
+//                                                                               }
+//                                                                             }
+//                                                                           }
+//                                                                         }
+//                                                                       }
+//                                                                     }
+//                                                                   }
+//                                                                 }
+//                                                               }
+//                                                             }
+//                                                           }
+//                                                         }
+//                                                       }
+//                                                     }
+//                                                   }
+//                                                 }
+//                                               }
+//                                             }
+//                                           }
+//                                         }
+//                                       }
+//                                     }
+//                                   }
+//                                 }
+//                               }
+//                             }
+//                           }
+//                         }
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// };
+
+
+module.exports = {populateUserPathEh};
