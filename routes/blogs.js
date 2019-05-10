@@ -19,6 +19,27 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   newPost.save().then(post => res.json(post));
 });
 
+router.get('/group_by_date', (req, res) => {
+  Blog.aggregate([
+    {$group:
+        {
+          _id:
+            {
+              day: {$dayOfMonth: "$date"},
+              month: {$month: "$date"},
+              year: {$year: "$date"}
+            },
+          // total: {$sum: "$data"},
+          count: {$sum: 1},
+          posts: { $push:  { title: "$title", id: "$_id" } }
+        }
+    },
+    {$sort: {count: 1}}
+  ]).then(posts => {
+    res.json({posts});
+  }).catch(err => res.status(404).json('couldn\'t get the blog posts'));
+});
+
 router.get('/', (req, res) => {
   Blog.find({}).populate('user').sort({date: -1}).then(posts => {
     res.json({posts});
@@ -63,12 +84,11 @@ router.post('/:id/comment', passport.authenticate('jwt', {session: false}), (req
       const newComment = new Comment({
         user: req.user.id,
         text: req.body.text,
-        of: post.id,
+        parentId: post.id,
         blog: post.id,
         onModel: 'blogs',
       });
-      post.comments.push({comment: newComment.id});
-      Promise.all([post.save(), newComment.save()]).then(values => res.json(values[1]));
+      newComment.save().then(comment => res.json(comment));
     } else {
       return res.status(404).json({post: 'blog post with this id does not exist'});
     }
@@ -76,7 +96,7 @@ router.post('/:id/comment', passport.authenticate('jwt', {session: false}), (req
 });
 
 router.get('/:id/comments', (req, res) => {
-  Comment.find({of: req.params.id}).then(comments => {
+  Comment.find({blog: req.params.id}).then(comments => {
     if (comments) {
       res.json(comments);
     } else {

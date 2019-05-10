@@ -11,7 +11,7 @@ const commentSchema = new Schema({
     type: String,
     required: true
   },
-  of: {
+  parentId: {
     type: Schema.Types.ObjectId,
     refPath: 'onModel',
     required: true
@@ -26,12 +26,6 @@ const commentSchema = new Schema({
     required: true,
     enum: ['blogs', 'comments']
   },
-  comments: [{
-    comment: {
-      type: Schema.Types.ObjectId,
-      ref: 'comments'
-    }
-  }],
   date: {
     type: Date,
     default: Date.now
