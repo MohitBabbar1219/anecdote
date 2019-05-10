@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const BLOG_DATA = "BLOG_DATA";
+export const BLOG_DATA_BY_DATE = "BLOG_DATA_BY_DATE";
 export const SPECIFIC_BLOG = "SPECIFIC_BLOG";
 export const MY_BLOGS = "MY_BLOGS";
 export const PUBLISHED_BLOG = "PUBLISHED_BLOG";
 export const RESET_PUBLISHED_BLOG = "RESET_PUBLISHED_BLOG";
-export const POST_COMMENT = "POST_COMMENT";
 export const COMMENTS_SPECIFIC_BLOG = "COMMENTS_SPECIFIC_BLOG";
 export const POSTED_COMMENT = "POSTED_COMMENT";
 export const SPECIFIC_COMMENT = "SPECIFIC_COMMENT";
@@ -16,6 +16,18 @@ export const getAllBlogs = (data) => {
       console.log(data);
       dispatch({
         type: BLOG_DATA,
+        payload: data.data
+      });
+    });
+  }
+};
+
+export const getAllBlogsByDate = (data) => {
+  return dispatch => {
+    axios.get('/api/blogs/group_by_date', data).then(data => {
+      console.log(data);
+      dispatch({
+        type: BLOG_DATA_BY_DATE,
         payload: data.data
       });
     });

@@ -8,12 +8,13 @@ import {bindActionCreators} from 'redux';
 import setAuthToken from "./utils/setAuthToken";
 import {setCurrentUser} from "./actions/loginAction";
 import PrivateRoute from "./hoc/PrivateRoute";
-import BlogPosts from "./views/BlogPosts";
+import BlogPosts from "./views/BlogPosts/BlogPosts";
 import Register from "./views/Register";
 import MyBlogs from "./views/MyBlogs";
 import CommentOnComment from "./views/CommentOnComment";
 import AddBlog from "./views/AddBlog";
 import SpotlightBlog from "./views/SpotlightBlog";
+import BlogPostsByDate from "./views/BlogPosts/BlogPostsByDate";
 
 class App extends React.Component {
   componentDidMount() {
@@ -28,7 +29,7 @@ class App extends React.Component {
         <div className="App">
           <NavBar/>
           <div className="container">
-            <Route path="/" exact component={BlogPosts}/>
+            <Route path="/" exact component={BlogPostsByDate}/>
             <Route path="/login" exact component={Login}/>
             <Route path="/register" exact component={Register}/>
             <Route path="/blog/:id" exact component={SpotlightBlog}/>

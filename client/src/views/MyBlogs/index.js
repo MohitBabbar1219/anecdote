@@ -3,7 +3,7 @@ import {getMyBlogs} from "../../actions/blogActions";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
-import BlogCard from "../../components/BlogCard";
+import BlogCard from "../../components/Blog/BlogCard";
 
 class MyBlogs extends Component {
   componentDidMount() {

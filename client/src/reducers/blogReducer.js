@@ -1,7 +1,7 @@
 import {
-  BLOG_DATA, COMMENTS_SPECIFIC_BLOG,
+  BLOG_DATA, BLOG_DATA_BY_DATE, COMMENTS_SPECIFIC_BLOG,
   MY_BLOGS,
-  POST_COMMENT, POSTED_COMMENT,
+  POSTED_COMMENT,
   PUBLISHED_BLOG,
   RESET_PUBLISHED_BLOG,
   SPECIFIC_BLOG, SPECIFIC_COMMENT
@@ -15,6 +15,12 @@ export default (state = {}, action) => {
       return {
         ...state,
         allBlogs: action.payload.posts
+      };
+    case BLOG_DATA_BY_DATE:
+      console.log(action.payload.posts);
+      return {
+        ...state,
+        allBlogsByDate: action.payload
       };
     case SPECIFIC_BLOG:
       console.log(action.payload);

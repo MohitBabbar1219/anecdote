@@ -36,7 +36,7 @@ router.get('/group_by_date', (req, res) => {
     },
     {$sort: {count: 1}}
   ]).then(posts => {
-    res.json({posts});
+    res.json(posts);
   }).catch(err => res.status(404).json('couldn\'t get the blog posts'));
 });
 
